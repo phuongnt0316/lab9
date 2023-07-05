@@ -30,7 +30,9 @@ public class Motor implements IMotor{
     }
 
     @Override
-    public void display() {
+    public void displayInfor() {
+        System.out.print(code+"\t"+name+"\t"+capacity+"\t"+num+"\t");
+
 
     }
 

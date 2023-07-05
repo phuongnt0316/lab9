@@ -4,7 +4,7 @@ import motor.Motor;
 
 import java.util.Scanner;
 
-public class Jupiter extends Motor {
+public class Serius extends Motor {
     int warranty;//Thoigian bao hanh
 
     @Override
@@ -20,5 +20,6 @@ public class Jupiter extends Motor {
         super.displayInfor();
         System.out.println(warranty+"");
     }
+
 
 }
