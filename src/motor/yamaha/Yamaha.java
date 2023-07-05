@@ -1,5 +1,7 @@
 package motor.yamaha;
 
+import motor.Motor;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -16,8 +18,11 @@ public class Yamaha {
         System.out.println("5. Exit");
         Scanner sc=new Scanner(System.in);
         boolean cont=true;
-        List<Jupiter> listjp = new ArrayList<Jupiter>();
-        List<Serius> listsr = new ArrayList<Serius>();
+        List<Motor> list=new ArrayList<>();
+        //List<Jupiter> listjp = new ArrayList<Jupiter>();
+        //List<Serius> listsr = new ArrayList<Serius>();
+
+
         do{
             System.out.println(" Chon chuc nang 1-5:");
             n=Integer.parseInt(sc.nextLine());
@@ -27,31 +32,45 @@ public class Yamaha {
                     for (int i = 0; i <3 ; i++) {
                         Jupiter jp=new Jupiter();
                         jp.inputInfor();
-                        listjp.add(jp);
+                        list.add(jp);
                     }
                     for (int i = 0; i <3 ; i++) {
                         Serius sr=new Serius();
                         sr.inputInfor();
-                        listsr.add(sr);
+                        list.add(sr);
                     }
                     break;
                 case 2:
                     System.out.println("Hien thi Jupiter");
-                    for(Jupiter item:listjp){
-                        item.displayInfor();
-                    }
-                    for(Serius item:listsr){
+                    for(Motor item:list) {
                         item.displayInfor();
                     }
                     break;
                 case 3:
                     System.out.println("Danh sach truoc sap xep");
-                    System.out.println("Hien thi Xe");
-                    for(Jupiter item:listjp){
+                    for(Motor item:list){
                         item.displayInfor();
                     }
-                    Collections.sort(listjp,(x, y)->{return (int) (x.warranty-y.warranty);});
-                    for(Jupiter item:listjp){
+                    Collections.sort(list,(x, y)->{
+                        int warantyx = 0;
+                        int warantyy = 0;
+                        if(x instanceof Serius) {
+                            Serius serius = (Serius) x;
+                            warantyx = serius.getWarranty();
+                        } else {
+                            Jupiter jupiter= (Jupiter) x;
+                            warantyx=jupiter.getWarranty();
+                        }
+                        if(y instanceof Serius) {
+                            Serius serius = (Serius) y;
+                            warantyy = serius.getWarranty();
+                        } else {
+                            Jupiter jupiter= (Jupiter) y;
+                            warantyy=jupiter.getWarranty();
+                        }
+                        return warantyx - warantyy;
+                    });
+                    for(Motor item:list){
                         item.displayInfor();
                     }
                     break;
@@ -60,7 +79,7 @@ public class Yamaha {
                     System.out.println("Nhap tu khoa tim kiem:");
                     key=sc.nextLine();
                     boolean f=false;
-                    for(Jupiter item:listjp){
+                    for(Motor item:list){
                         if(item.getName().contains(key)){
                             item.displayInfor();
                             f=true;

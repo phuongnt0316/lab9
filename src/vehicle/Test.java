@@ -6,19 +6,23 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Test {
+
     public static void main(String[] args) {
         int n;
-        System.out.println("MENU: ");
-        System.out.println("1. Input");
-        System.out.println("2. Display");
-        System.out.println("3. Sort by price");
-        System.out.println("4. Search by model");
-        System.out.println("5. Exit");
+
         Scanner sc=new Scanner(System.in);
         boolean cont=true;
-        List<Car> listcar = new ArrayList<Car>();
-        List<Truck> listtruck = new ArrayList<Truck>();
+//        List<Vehicles> list=new ArrayList<Vehicles>();
+        List<Vehicles> list = new ArrayList<>();
+//        List<Car> listcar = new ArrayList<Car>();
+//        List<Truck> listtruck = new ArrayList<Truck>();
         do{
+            System.out.println("MENU: ");
+            System.out.println("1. Input");
+            System.out.println("2. Display");
+            System.out.println("3. Sort by price");
+            System.out.println("4. Search by model");
+            System.out.println("5. Exit");
             System.out.println(" Chon chuc nang 1-5:");
             n=Integer.parseInt(sc.nextLine());
             switch (n){
@@ -27,36 +31,49 @@ public class Test {
                     for (int i = 0; i <3 ; i++) {
                         Car car=new Car();
                         car.input();
-                        listcar.add(car);
+                        list.add(car);
                     }
                     for (int i = 0; i <3 ; i++) {
                         Truck truck = new Truck();
                         truck.input();
-                        listtruck.add(truck);
+                        list.add(truck);
                     }
                     break;
                 case 2:
                     System.out.println("Hien thi Car");
-                    for(Car item:listcar){
+                    for(Vehicles item:list){
                         item.display();
                     }
-                    for(Truck item:listtruck){
-                        item.display();
-                    }
+
                     break;
                 case 3:
-                    System.out.println("Danh sach truoc sap xep");
-                    System.out.println("Hien thi Car");
-                    for(Car item:listcar){
+                    System.out.println("Danh sach TRUOC sap xep");
+
+                    for(Vehicles item:list){
                         item.display();
                     }
-                    Collections.sort(listcar,(x, y)->{return (int) (x.price-y.price);});
-                    for(Car item:listcar){
+                    System.out.println("Danh sach SAU sap xep");
+                    Collections.sort(list,(x, y)->{return (int) (x.price-y.price);});
+                    for(Vehicles item:list){
                         item.display();
                     }
                     break;
                 case 4:
-                    System.out.println("4");
+                    String key;
+                    System.out.println("Nhap tu khoa:");
+                    key=sc.nextLine();
+                    boolean flag=false;
+                    for(Vehicles item:list){
+                        if(item.getModel().equals(key)){
+                            item.display();
+                            flag=true;
+
+                        }
+                    }
+                    if(flag==false){
+                        System.out.println("Khong tim thay!");
+
+                    }
                     break;
                 case 5:
                     System.out.println("Ket thuc!");

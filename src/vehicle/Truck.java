@@ -15,7 +15,7 @@ public class Truck extends Vehicles{
     }
 
     public void display() {
-        System.out.println("--Xuat du lieu-Truck--");
+
         System.out.println(this.maker+"\t"+this.model+"\t"+this.price+"\t"+this.truckload);
 
     }

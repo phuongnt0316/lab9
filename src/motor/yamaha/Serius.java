@@ -1,9 +1,14 @@
 package motor.yamaha;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import motor.Motor;
 
 import java.util.Scanner;
-
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Serius extends Motor {
     int warranty;//Thoigian bao hanh
 

@@ -10,6 +10,7 @@ import java.util.Scanner;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Motor implements IMotor{
+
     String code;//ma xe
     String name;//ten loai xe
     double capacity;//dung tich xi lanh
