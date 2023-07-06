@@ -47,12 +47,12 @@ public class HopDong {
         HopDong hopDong=new HopDong();
        // List<HopDong> hopDongList=new ArrayList<>();
         for(A item:lista){
-            String sohopdong=item.getSoHopDong();// lay sohopdong cua item trong lista
+            String sohopdong=item.getSoHopDong();
             if(hopDongMap.containsKey(sohopdong)){ //neu da ton tai sohopdong thi them moi hoadon vao list
 
-                hopDong=hopDongMap.get(sohopdong); //hopDong=values co key =sohopdong
-                HoaDon hoaDon=new HoaDon(item.getSoHoaDon(), item.getGiaTrihd(), item.getLoaiTienhd());//setHoadon
-                hopDong.setlist(hoaDon);//add hoadon vao list
+                hopDong=hopDongMap.get(sohopdong);
+                HoaDon hoaDon=new HoaDon(item.getSoHoaDon(), item.getGiaTrihd(), item.getLoaiTienhd());
+                hopDong.setlist(hoaDon);
             }else {// neu chua co sohopdong thi them key sohopdong va them moi hoadon vao list
                 hopDong=new HopDong(sohopdong,item.getNgayHopDong(),item.getGiaTri(),item.getLoaiTien());
                 HoaDon hoaDon=new HoaDon(item.getSoHoaDon(), item.getGiaTrihd(), item.getLoaiTienhd());
