@@ -53,7 +53,7 @@ public class HopDong {
                 hopDong=hopDongMap.get(sohopdong);
                 HoaDon hoaDon=new HoaDon(item.getSoHoaDon(), item.getGiaTrihd(), item.getLoaiTienhd());
                 hopDong.setlist(hoaDon);
-            }else {// neu chua co sohopdong thi them key sohopdong va them moi hoadon vao list
+            }else {// neu chua ton tai sohopdong thi them key sohopdong va them moi hoadon vao list
                 hopDong=new HopDong(sohopdong,item.getNgayHopDong(),item.getGiaTri(),item.getLoaiTien());
                 HoaDon hoaDon=new HoaDon(item.getSoHoaDon(), item.getGiaTrihd(), item.getLoaiTienhd());
                 hopDong.setlist(hoaDon);
