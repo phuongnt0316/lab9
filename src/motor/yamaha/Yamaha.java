@@ -52,22 +52,8 @@ public class Yamaha {
                         item.displayInfor();
                     }
                     Collections.sort(list,(x, y)->{
-                        int warantyx = 0;
-                        int warantyy = 0;
-                        if(x instanceof Serius) {
-                            Serius serius = (Serius) x;
-                            warantyx = serius.getWarranty();
-                        } else {
-                            Jupiter jupiter= (Jupiter) x;
-                            warantyx=jupiter.getWarranty();
-                        }
-                        if(y instanceof Serius) {
-                            Serius serius = (Serius) y;
-                            warantyy = serius.getWarranty();
-                        } else {
-                            Jupiter jupiter= (Jupiter) y;
-                            warantyy=jupiter.getWarranty();
-                        }
+                        int warantyx = x instanceof Serius ? ((Serius) x).getWarranty() : ((Jupiter) x).getWarranty();
+                        int warantyy = y instanceof Serius ? ((Serius) y).getWarranty() : ((Jupiter) y).getWarranty();
                         return warantyx - warantyy;
                     });
                     for(Motor item:list){

@@ -43,7 +43,7 @@ public class HopDong {
         lista.add(new A("hopdong1","11/2/2023",1000,"vnd","hoadon3",700,"vnd"));
         lista.add(new A("hopdong2","11/2/2020",2000,"vnd","hoadon4",800,"vnd"));
         lista.add(new A("hopdong1","11/2/2023",1000,"vnd","hoadon5",900,"vnd"));
-        Map<String,HopDong> hopDongMap=new HashMap<>();
+        Map<String,HopDong> hopDongMap=new LinkedHashMap<>();
         HopDong hopDong=new HopDong();
        // List<HopDong> hopDongList=new ArrayList<>();
         for(A item:lista){
@@ -53,14 +53,17 @@ public class HopDong {
                 hopDong=hopDongMap.get(sohopdong);
                 HoaDon hoaDon=new HoaDon(item.getSoHoaDon(), item.getGiaTrihd(), item.getLoaiTienhd());
                 hopDong.setlist(hoaDon);
+
             }else {// neu chua ton tai sohopdong thi them key sohopdong va them moi hoadon vao list
                 hopDong=new HopDong(sohopdong,item.getNgayHopDong(),item.getGiaTri(),item.getLoaiTien());
                 HoaDon hoaDon=new HoaDon(item.getSoHoaDon(), item.getGiaTrihd(), item.getLoaiTienhd());
                 hopDong.setlist(hoaDon);
                 hopDongMap.put(sohopdong,hopDong);
+
               //  hopDongList.add(hopDong);
             }
         }
+
 
         List<HopDong> hopDongList = new ArrayList<>(hopDongMap.values());
         for(HopDong item:hopDongList){
